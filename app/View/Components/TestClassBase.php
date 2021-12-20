@@ -11,9 +11,15 @@ class TestClassBase extends Component
      *
      * @return void
      */
-    public function __construct()
+        // プロパティを設定して属性でcomponentで表示する。
+    public $classMessage;
+    public $defaultMessage;
+
+    // ここに変数などを入れる
+    public function __construct($classMessage,$defaultMessage='初期値')
     {
-        //
+    $this->classMessage = $classMessage;
+    $this->defaultMessage = $defaultMessage;
     }
 
     /**

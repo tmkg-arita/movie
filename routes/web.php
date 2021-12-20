@@ -25,4 +25,5 @@ Route::get('/dashboard', function () {
 Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']);
 Route::get('/component-test2', [ComponentTestController::class, 'showComponent2']);
 
+// 現在のディレクトリのauth.phpも読み込んでいる。
 require __DIR__.'/auth.php';
