@@ -8,8 +8,10 @@ class Kernel extends HttpKernel
 {
     /**
      * The application's global HTTP middleware stack.
+     * (アプリケーションのグローバルHTTPミドルウェアスタック。)
      *
      * These middleware are run during every request to your application.
+     *(これらのミドルウェアは、アプリケーションへのすべてのリクエスト中に実行されます。)
      *
      * @var array<int, class-string|string>
      */
@@ -25,6 +27,7 @@ class Kernel extends HttpKernel
 
     /**
      * The application's route middleware groups.
+     * (アプリケーションのルートミドルウェアグループ。)
      *
      * @var array<string, array<int, class-string|string>>
      */
@@ -48,8 +51,10 @@ class Kernel extends HttpKernel
 
     /**
      * The application's route middleware.
+     * (アプリケーションのルートミドルウェア。)
      *
      * These middleware may be assigned to groups or used individually.
+     * (これらのミドルウェアは、グループに割り当てることも、個別に使用することもできます。)
      *
      * @var array<string, class-string|string>
      */
