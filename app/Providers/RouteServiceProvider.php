@@ -12,24 +12,35 @@ class RouteServiceProvider extends ServiceProvider
 {
     /**
      * The path to the "home" route for your application.
+     * (アプリケーションの「ホーム」ルートへのパス。)
      *
      * This is used by Laravel authentication to redirect users after login.
-     *
+     *(これは、ログイン後にユーザーをリダイレクトするためにLaravel認証によって使用されます。)
      * @var string
      */
+
+    // userがloginしたらdashboardにリダイレクトがかかる。
     public const HOME = '/dashboard';
+
+    // ownerと管理者(admin)がログインしたらそれぞれのURLにリダイレクトするように設定する。
+    public const OWNER_HOME = '/owner/dashboard';
+    public const ADMIN_HOME = '/admin/dashboard';
 
     /**
      * The controller namespace for the application.
+     * (アプリケーションのコントローラー名前空間。)
      *
      * When present, controller route declarations will automatically be prefixed with this namespace.
+     * (存在する場合、コントローラールート宣言には、この名前空間のプレフィックスが自動的に付けられます。)
      *
      * @var string|null
      */
     // protected $namespace = 'App\\Http\\Controllers';
+    // (保護された$ namespace = 'App \\ Http \\ Controllers';)
 
     /**
      * Define your route model bindings, pattern filters, etc.
+     * (ルートモデルのバインディング、パターンフィルターなどを定義します。)
      *
      * @return void
      */
@@ -51,6 +62,7 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Configure the rate limiters for the application.
+     * (アプリケーションのレートリミッターを構成します。)
      *
      * @return void
      */
