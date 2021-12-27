@@ -12,6 +12,9 @@ use App\Http\Controllers\LifeTestController;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
+|(ここで、アプリケーションのWebルートを登録できます。これらは
+|ルートは、グループ内のRouteServiceProviderによってロードされます。
+| 「Web」ミドルウェアグループが含まれています。今、素晴らしいものを作成してください！)
 |
 */
 
