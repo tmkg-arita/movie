@@ -13,6 +13,7 @@ class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     * (ユーザーがこの要求を行うことを許可されているかどうかを確認します。)
      *
      * @return bool
      */
@@ -23,6 +24,7 @@ class LoginRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
+     * (リクエストに適用される検証ルールを取得します。)
      *
      * @return array
      */
@@ -36,6 +38,7 @@ class LoginRequest extends FormRequest
 
     /**
      * Attempt to authenticate the request's credentials.
+     * (リクエストのクレデンシャルを認証してみてください。)
      *
      * @return void
      *
@@ -45,7 +48,15 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        if($this -> routeIs('owner.*')){
+            $guard = 'owners';
+        }elseif($this -> routeIs('admin.*')){
+            $guard = 'admin';
+        }else{
+            $guard = 'users';
+        }
+
+        if (! Auth::guard()->Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
@@ -58,6 +69,7 @@ class LoginRequest extends FormRequest
 
     /**
      * Ensure the login request is not rate limited.
+     * (ログイン要求がレート制限されていないことを確認してください。)
      *
      * @return void
      *
@@ -83,6 +95,7 @@ class LoginRequest extends FormRequest
 
     /**
      * Get the rate limiting throttle key for the request.
+     * (リクエストの律速スロットルキーを取得します。)
      *
      * @return string
      */
