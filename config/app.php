@@ -10,6 +10,9 @@ return [
     | This value is the name of your application. This value is used when the
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
+    |(この値は、アプリケーションの名前です。この値は、
+    |フレームワークは、アプリケーションの名前を通知または
+    |アプリケーションまたはそのパッケージで必要とされるその他の場所。)
     |
     */
 
@@ -17,12 +20,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Environment
+    | Application Environment(アプリケーション環境)
     |--------------------------------------------------------------------------
     |
     | This value determines the "environment" your application is currently
     | running in. This may determine how you prefer to configure various
     | services the application utilizes. Set this in your ".env" file.
+    |(この値は、アプリケーションが現在ある「環境」を決定します
+    |実行中。これにより、さまざまな構成をどのように設定するかが決まる場合があります
+    |アプリケーションが利用するサービス。これを「.env」ファイルに設定します。)
     |
     */
 
@@ -30,12 +36,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Debug Mode
+    | Application Debug Mode(アプリケーションデバッグモード)
     |--------------------------------------------------------------------------
     |
     | When your application is in debug mode, detailed error messages with
     | stack traces will be shown on every error that occurs within your
     | application. If disabled, a simple generic error page is shown.
+    |(アプリケーションがデバッグモードの場合、詳細なエラーメッセージは
+    |スタックトレースは、内部で発生するすべてのエラーに表示されます
+    |応用。無効にすると、単純な一般的なエラーページが表示されます。)
     |
     */
 
@@ -43,12 +52,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application URL
+    | Application URL(アプリケーションのURL)
     |--------------------------------------------------------------------------
     |
     | This URL is used by the console to properly generate URLs when using
     | the Artisan command line tool. You should set this to the root of
     | your application so that it is used when running Artisan tasks.
+    |(このURLは、コンソールが使用時にURLを適切に生成するために使用されます
+    | Artisanコマンドラインツール。これをのルートに設定する必要があります
+    | Artisanタスクを実行するときに使用されるようにアプリケーション。)
     |
     */
 
@@ -58,12 +70,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Timezone
+    | Application Timezone(アプリケーションのタイムゾーン)
     |--------------------------------------------------------------------------
     |
     | Here you may specify the default timezone for your application, which
     | will be used by the PHP date and date-time functions. We have gone
     | ahead and set this to a sensible default for you out of the box.
+    |(ここで、アプリケーションのデフォルトのタイムゾーンを指定できます。
+    | PHPの日付および日時関数によって使用されます。我々は去った
+    |先に進み、これを箱から出してすぐに使用できる適切なデフォルトに設定します。)
     |
     */
 
@@ -71,12 +86,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Locale Configuration
+    | Application Locale Configuration(アプリケーションロケールの構成)
     |--------------------------------------------------------------------------
     |
     | The application locale determines the default locale that will be used
     | by the translation service provider. You are free to set this value
     | to any of the locales which will be supported by the application.
+    |(アプリケーションロケールは、使用されるデフォルトのロケールを決定します
+    |翻訳サービスプロバイダーによる。この値は自由に設定できます
+    |アプリケーションでサポートされるロケールのいずれかに。)
     |
     */
 
@@ -84,12 +102,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Fallback Locale
+    | Application Fallback Locale(アプリケーションフォールバックロケール)
     |--------------------------------------------------------------------------
     |
     | The fallback locale determines the locale to use when the current one
     | is not available. You may change the value to correspond to any of
     | the language folders that are provided through your application.
+    |(フォールバックロケールは、現在のロケールで使用するロケールを決定します
+    |利用できません。いずれかに対応するように値を変更できます
+    |アプリケーションを通じて提供される言語フォルダー。)
     |
     */
 
@@ -97,12 +118,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Faker Locale
+    | Faker Locale(フェイカーロケール)
     |--------------------------------------------------------------------------
     |
     | This locale will be used by the Faker PHP library when generating fake
     | data for your database seeds. For example, this will be used to get
     | localized telephone numbers, street address information and more.
+    |(このロケールは、偽物を生成するときにFakerPHPライブラリによって使用されます
+    |データベースシードのデータ。たとえば、これは取得するために使用されます
+    |ローカライズされた電話番号、住所情報など。)
     |
     */
 
@@ -110,12 +134,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Encryption Key
+    | Encryption Key(暗号化キー)
     |--------------------------------------------------------------------------
     |
     | This key is used by the Illuminate encrypter service and should be set
     | to a random, 32 character string, otherwise these encrypted strings
     | will not be safe. Please do this before deploying an application!
+    |(このキーはIlluminate暗号化サービスによって使用され、設定する必要があります
+    |ランダムな32文字の文字列、それ以外の場合はこれらの暗号化された文字列
+    |安全ではありません。アプリケーションをデプロイする前にこれを行ってください！)
     |
     */
 
@@ -125,12 +152,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Autoloaded Service Providers
+    | Autoloaded Service Providers(自動ロードされたサービスプロバイダー)
     |--------------------------------------------------------------------------
     |
     | The service providers listed here will be automatically loaded on the
     | request to your application. Feel free to add your own services to
     | this array to grant expanded functionality to your applications.
+    |(ここにリストされているサービスプロバイダーは、
+    |アプリケーションにリクエストします。に独自のサービスを自由に追加してください
+    |この配列は、アプリケーションに拡張機能を付与します。)
     |
     */
 
@@ -138,6 +168,7 @@ return [
 
         /*
          * Laravel Framework Service Providers...
+         * (Laravelフレームワークサービスプロバイダー...)
          */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -164,10 +195,12 @@ return [
 
         /*
          * Package Service Providers...
+         * (パッケージサービスプロバイダー...)
          */
 
         /*
          * Application Service Providers...
+         * (アプリケーションサービスプロバイダー...)
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
