@@ -25,15 +25,17 @@ use App\Http\Controllers\Owner\Auth\VerifyEmailController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 /*middleware(['auth'])にguard設定がない状態なので
 auth:ownersというownersという権限があればdashboardが表示されるという
 ふううにしなければならない。以下のRouteの中にownersと書いていく。
 */
+
+Route::get('/', function () {
+    return view('owner.welcome');
+});
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('owner.dashboard');
 })->middleware(['auth:owners'])->name('dashboard');
 
 
