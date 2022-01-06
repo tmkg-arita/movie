@@ -12,24 +12,32 @@ class RouteServiceProvider extends ServiceProvider
 {
     /**
      * The path to the "home" route for your application.
+     * (アプリケーションの「ホーム」ルートへのパス。)
      *
      * This is used by Laravel authentication to redirect users after login.
+     * (これは、ログイン後にユーザーをリダイレクトするためにLaravel認証で使用されます。)
      *
      * @var string
      */
     public const HOME = '/dashboard';
+    public const OWNER_HOME = '/owner/dashboard';
+    public const ADMIN_HOME = '/admin/dashboard';
 
     /**
      * The controller namespace for the application.
+     * (アプリケーションのコントローラー名前空間。)
      *
      * When present, controller route declarations will automatically be prefixed with this namespace.
+     * (存在する場合、コントローラールート宣言には自動的にこの名前空間のプレフィックスが付けられます。)
      *
      * @var string|null
      */
     // protected $namespace = 'App\\Http\\Controllers';
+    //(保護された$ namespace = 'App \\ Http \\ Controllers';)
 
     /**
      * Define your route model bindings, pattern filters, etc.
+     * (ルートモデルのバインディング、パターンフィルターなどを定義します。)
      *
      * @return void
      */
@@ -43,14 +51,29 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+            Route::prefix('/')
+                ->as('user.')
+                ->middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+
+            Route::prefix('owner')
+                ->as('owner.')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/owner.php'));
+
+            Route::prefix('admin')
+                ->as('admin.')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin.php'));
         });
     }
 
     /**
      * Configure the rate limiters for the application.
+     * (アプリケーションのレートリミッターを構成します。)
      *
      * @return void
      */

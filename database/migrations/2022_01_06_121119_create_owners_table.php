@@ -4,17 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateOwnersTable extends Migration
 {
     /**
      * Run the migrations.
-     * (移行を実行します。)
+     *  (移行を実行します。)
+     * (移行を逆にします。)
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('owners', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -27,12 +28,11 @@ class CreateUsersTable extends Migration
 
     /**
      * Reverse the migrations.
-     * (移行を逆にします。)
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('owners');
     }
 }

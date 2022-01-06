@@ -7,14 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
-class User extends Authenticatable
+class Owner extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
-     *(一括割り当て可能な属性。)
+     *
      * @var array<int, string>
      */
     protected $fillable = [
@@ -25,7 +24,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be hidden for serialization.
-     *(シリアル化のために非表示にする必要がある属性。)
+     *
      * @var array<int, string>
      */
     protected $hidden = [
@@ -35,7 +34,6 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be cast.
-     * キャストする必要のある属性。
      *
      * @var array<string, string>
      */

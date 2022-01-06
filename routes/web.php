@@ -6,22 +6,25 @@ use App\Http\Controllers\LifeTestController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes(Webルート)
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
+|[ここで、アプリケーションのWebルートを登録できます。これらは
+|ルートは、グループ内のRouteServiceProviderによってロードされます。
+| 「Web」ミドルウェアグループが含まれています。今、素晴らしいものを作成してください！]
 |
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    return view('user.dashboard');
+})->middleware(['auth:users'])->name('dashboard');
 
 Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']);
 Route::get('/component-test2', [ComponentTestController::class, 'showComponent2']);
