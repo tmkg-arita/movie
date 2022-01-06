@@ -63,6 +63,12 @@ return [
             'provider' => 'admin',
         ],
 
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+
     ],
 
     /*
@@ -103,7 +109,7 @@ return [
             'model' => App\Models\Admin::class,
         ],
 
-   
+
     ],
 
     /*
