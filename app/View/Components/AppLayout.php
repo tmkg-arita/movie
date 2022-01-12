@@ -1,3 +1,4 @@
+<!-- コンポーネントクラスを作ってサブコントローラーを作成している。 -->
 <?php
 
 namespace App\View\Components;
