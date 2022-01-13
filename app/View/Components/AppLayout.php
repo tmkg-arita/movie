@@ -1,8 +1,6 @@
-<!-- コンポーネントクラスを作ってサブコントローラーを作成している。 -->
 <?php
-
 namespace App\View\Components;
-
+// <!-- コンポーネントクラスを作ってサブコントローラーを作成している。 -->
 use Illuminate\View\Component;
 
 class AppLayout extends Component
