@@ -88,7 +88,7 @@
                 </div>
             </div>
 
-            <div class="mt-3 space-y-1">
+            <div class="mt-3  space-y-1">
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf

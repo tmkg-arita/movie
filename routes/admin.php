@@ -31,6 +31,9 @@ Route::get('/', function () {
     return view('admin.welcome');
 });
 
+
+
+// リソースコントローラーのルーティング
 Route::resource('owners',OwnersController::class)
 ->middleware('auth:admin');
 
