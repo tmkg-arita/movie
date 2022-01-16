@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Owner;//Eloquant
+use App\Models\Owner;//eloquant
 use Illuminate\Support\Facades\DB;//Query Builder
 use Carbon\Carbon;
 

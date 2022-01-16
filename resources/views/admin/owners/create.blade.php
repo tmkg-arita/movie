@@ -42,8 +42,8 @@
                               </div>
                               <div class="p-2 w-full">
                                 <div class="relative">
-                                    <label for="password_confirm" class="leading-7 text-sm text-gray-400">パスワード確認用</label>
-                                    <input type="password" required id="password" name="password_confirm" class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-blue-500 focus:bg-gray-900 focus:ring-2 focus:ring-blue-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    <label for="password_confirmation" class="leading-7 text-sm text-gray-400">パスワード確認用</label>
+                                    <input type="password" required id="password_confirmation" name="password_confirmation" class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-blue-500 focus:bg-gray-900 focus:ring-2 focus:ring-blue-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                   </div>
                               </div>
                               <div class="flex justify-around p-2 w-full">
