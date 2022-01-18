@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Owner;//Eloquant
-use Illuminate\Support\Facades\DB;//Query Builder
+// use Illuminate\Support\Facades\DB;//Query Builder
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class OwnersController extends Controller
 {
@@ -27,15 +29,11 @@ class OwnersController extends Controller
 
     public function index()
     {
-        $today = Carbon::now();
-        $e_all=Owner::all();
-        $q_get=DB::table('owners')->select('name')->get();
-        // $q_first=DB::table('owners')->select('name')->first();
-        // $c_test=collect([
-        //     'name' => 'test',
-        // ]);
-        // dd($e_all,$q_get,$q_first,$c_test);
-        return view('admin.owners.index',compact('e_all','q_get','today'));
+
+
+        $owners = Owner::select('name','email','created_at')->get();
+        // echo $owners;
+        return view('admin.owners.index',compact('owners'));
     }
 
     /**
@@ -46,7 +44,7 @@ class OwnersController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.owners.create');
     }
 
     /**
@@ -58,7 +56,23 @@ class OwnersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:owners',
+            'password' => 'required|string|confirmed|min:8',
+        ]);
+
+
+
+        Owner::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()
+        ->route('admin.owners.index')
+        ->with('message','オーナー登録が完了しました。');
     }
 
     /**

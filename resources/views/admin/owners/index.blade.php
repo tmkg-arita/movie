@@ -1,8 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-    {{$today}}
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            オーナー一覧
         </h2>
 
     </x-slot>
@@ -12,19 +11,48 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    エロクアント
-                    @foreach ($e_all as $e_val )
-                        {{$e_val ->name}}
-                        {{$e_val ->created_at ->diffForHumans()}}
-                    @endforeach
-                    <br/>
-                    クエリビルダ
-                    @foreach ($q_get as $q_val )
-                        {{$q_val ->name}}
-                        {{Carbon\Carbon::parse($e_val ->created_at)->diffForHumans()}}
-                    @endforeach
+<!-- テーブルにデータ読み込み表示している。 -->
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container px-5 py-12 mx-auto">
+<!-- messageの表示パターン１ -->
+    {{-- @if (session('message'))
+            <div class='bg-white-300 w-1/2 mx-auto p-2 text-blue'>
+                {{session('message')}}
+            </div>
+      @endif --}}
+<!-- messageの表示パターン２（component使用） -->
+    <x-flash-message status="info" />
 
+      <div class="flex justify-end mb-4">
+        <button onclick="location.href='{{route('admin.owners.create')}}'" class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">新規登録</button>
+      </div>
+    <div class="lg:w-2/3 w-full mx-auto overflow-auto">
 
+      <table class="table-auto w-full text-left whitespace-no-wrap">
+        <thead>
+          <tr>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800 rounded-tl rounded-bl">名前</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800">メールアドレス</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800">作成日</th>
+            <th class="w-10 title-font tracking-wider font-medium text-white text-sm bg-gray-800 rounded-tr rounded-br"></th>
+          </tr>
+        </thead>
+        <tbody>
+        @foreach ($owners as $owner )
+            <tr>
+                <td class="px-4 py-3">{{$owner ->name}}</td>
+                <td class="px-4 py-3">{{$owner ->email}}</td>
+                <td class="px-4 py-3"> {{$owner ->created_at ->diffForHumans()}}</td>
+                <td class="w-10 text-center">
+                <input name="plan" type="radio">
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
                 </div>
             </div>
