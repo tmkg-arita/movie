@@ -17,21 +17,45 @@ class OwnerSeeder extends Seeder
     {
         DB::table('owners')->insert([
         [
-             'name' => 'test1',
+             'name' => 'owner1',
              'email'=> 'owner1@owner.com',
-             'password' => Hash::make('adminadmin2'),
+             'password' => Hash::make('aaaaaaaaaa'),
              'created_at' => '2022/01/12 15:15:15',
         ],
         [
-            'name' => 'test',
+            'name' => 'owner2',
             'email'=> 'owner2@owner.com',
-            'password' => Hash::make('adminadmin2'),
+            'password' => Hash::make('aaaaaaaaaa'),
             'created_at' => '2022/01/12 15:15:15',
         ],
         [
-            'name' => 'test',
+            'name' => 'owner3',
             'email'=> 'owner3@owner.com',
-            'password' => Hash::make('adminadmin2'),
+            'password' => Hash::make('aaaaaaaaaa'),
+            'created_at' => '2022/01/12 15:15:15',
+        ],
+        [
+            'name' => 'owner4',
+            'email'=> 'owner4@owner.com',
+            'password' => Hash::make('aaaaaaaaaa'),
+            'created_at' => '2022/01/12 15:15:15',
+        ],
+        [
+            'name' => 'owner5',
+            'email'=> 'owner5@owner.com',
+            'password' => Hash::make('aaaaaaaaaa'),
+            'created_at' => '2022/01/12 15:15:15',
+        ],
+        [
+            'name' => 'owner6',
+            'email'=> 'owner6@owner.com',
+            'password' => Hash::make('aaaaaaaaaa'),
+            'created_at' => '2022/01/12 15:15:15',
+        ],
+        [
+            'name' => 'owner7',
+            'email'=> 'owner7@owner.com',
+            'password' => Hash::make('aaaaaaaaaa'),
             'created_at' => '2022/01/12 15:15:15',
         ],
     ]);

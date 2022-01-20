@@ -26,13 +26,14 @@ use Illuminate\Support\Facades\Route;
 | 「Web」ミドルウェアグループが含まれています。今、素晴らしいものを作成してください！]
 |
 */
-
-Route::get('/', function () {
-    return view('admin.welcome');
-});
+// 管理者側には必要ない
+// Route::get('/', function () {
+//     return view('admin.welcome');
+// });
 
 Route::resource('owners',OwnersController::class)
-->middleware('auth:admin');
+->middleware('auth:admin')
+->except(['show']);
 
 
 Route::prefix('expired-owners')->
