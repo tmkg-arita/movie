@@ -5,10 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Owner;//Eloquant
-// use Illuminate\Support\Facades\DB;//Query Builder
+use App\Models\Shop;
+use Illuminate\Support\Facades\DB;//Query Builder
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Throwable;
+use Illuminate\Support\Facades\Log;
+
+
+
 
 
 class OwnersController extends Controller
@@ -64,12 +70,31 @@ class OwnersController extends Controller
         ]);
 
 
+        try {
+            DB::transaction(function()use($request)
+             {
+                $owner = Owner::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password),
+                ]);
 
-        Owner::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+                Shop::create([
+                    'owner_id' => $owner -> id,
+                    'name' => '店名を入力して下さい。',
+                    'information' => '',
+                    'filename' => '',
+                    'is_selling' => true,
+
+                ]);
+                
+            },2);
+        } catch (Throwable $e) {
+            Log::error($e);
+            throw $e;
+        }
+
+
 
         return redirect()
         ->route('admin.owners.index')

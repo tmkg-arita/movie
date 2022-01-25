@@ -38,6 +38,11 @@
                     <input type="email" id="email" name="email" value="{{$owner -> email}}" required  class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-blue-500 focus:bg-gray-900 focus:ring-2 focus:ring-blue-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
             </div>
+            <div class="relative">
+                <label for="shop" class="leading-7 text-sm text-gray-400">店名</label>
+                <div class="w-full bg-gray-800 bg-opacity-40 rounded  focus:bg-gray-900 focus:ring-2 focus:ring-blue-900 text-base outline-none text-gray-20 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{$owner ->shop -> name}} </div>
+            </div>
+            </div>
             <div class="p-2 w-full">
                 <div class="relative">
                     <label for="password" class="leading-7 text-sm text-gray-400">パスワード</label>
