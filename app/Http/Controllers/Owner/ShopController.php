@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Shop;
 use App\Models\Owner;
 use Illuminate\Support\Facades\Storage;
-
+use InterventionImage;
 // use Carbon\Carbon;
 
 class ShopController extends Controller
@@ -40,6 +40,8 @@ class ShopController extends Controller
 
      public function index()
 {
+    // phpinfo();
+
 
     $ownerId = Auth::id();
     $shops=Shop::where('owner_id',$ownerId)->get();
@@ -58,7 +60,15 @@ public function update(Request $request, $id)
 {
    $imageFile = $request->image;
    if(!is_null($imageFile) && $imageFile->isValid()){
-       Storage::putFile('public/shops',$imageFile);
+    //  Storage::putFile('public/shops',$imageFile);  リサイズ無しの場合
+        
+        $resizedImage = InterventionImage::make($imageFile)
+        ->resize(1920,1080)->encode();
+
+        $fileName = uniqId(rand().'_');
+        $extension = $imageFile->extension();
+        $fileNameToStore=$fileName.'.'.$extension;
+        Storage::put('public/shops/'.$fileNameToStore,$resizedImage);
    }
 
    return redirect()->route('owner.shops.index');
