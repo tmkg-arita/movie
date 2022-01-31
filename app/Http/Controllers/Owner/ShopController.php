@@ -10,6 +10,7 @@ use App\Models\Shop;
 use App\Models\Owner;
 use Illuminate\Support\Facades\Storage;
 use InterventionImage;
+use App\Http\Requests\UpLoadImageRequest;
 // use Carbon\Carbon;
 
 class ShopController extends Controller
@@ -56,7 +57,7 @@ public function edit($id)
 
 }
 
-public function update(Request $request, $id)
+public function update(UpLoadImageRequest $request, $id)
 {
    $imageFile = $request->image;
    if(!is_null($imageFile) && $imageFile->isValid()){
