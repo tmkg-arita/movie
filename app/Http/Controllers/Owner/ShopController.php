@@ -11,6 +11,7 @@ use App\Models\Owner;
 use Illuminate\Support\Facades\Storage;
 use InterventionImage;
 use App\Http\Requests\UpLoadImageRequest;
+use App\Services\ImageService;
 // use Carbon\Carbon;
 
 class ShopController extends Controller
@@ -61,15 +62,17 @@ public function update(UpLoadImageRequest $request, $id)
 {
    $imageFile = $request->image;
    if(!is_null($imageFile) && $imageFile->isValid()){
+      $fileNameToStore =ImageService::upload($imageFile,'shops');
+   
     //  Storage::putFile('public/shops',$imageFile);  リサイズ無しの場合
         
-        $resizedImage = InterventionImage::make($imageFile)
-        ->resize(1920,1080)->encode();
+        // $resizedImage = InterventionImage::make($imageFile)
+        // ->resize(1920,1080)->encode();
 
-        $fileName = uniqId(rand().'_');
-        $extension = $imageFile->extension();
-        $fileNameToStore=$fileName.'.'.$extension;
-        Storage::put('public/shops/'.$fileNameToStore,$resizedImage);
+        // $fileName = uniqId(rand().'_');
+        // $extension = $imageFile->extension();
+        // $fileNameToStore=$fileName.'.'.$extension;
+        // Storage::put('public/shops/'.$fileNameToStore,$resizedImage);
    }
 
    return redirect()->route('owner.shops.index');
