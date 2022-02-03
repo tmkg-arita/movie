@@ -58,25 +58,41 @@ public function edit($id)
 
 }
 
-public function update(UpLoadImageRequest $request, $id)
+public function update(UploadImageRequest $request, $id)
 {
-   $imageFile = $request->image;
-   if(!is_null($imageFile) && $imageFile->isValid()){
-      $fileNameToStore =ImageService::upload($imageFile,'shops');
+
    
-    //  Storage::putFile('public/shops',$imageFile);  リサイズ無しの場合
-        
-        // $resizedImage = InterventionImage::make($imageFile)
-        // ->resize(1920,1080)->encode();
+    $request->validate([
+        'name' => 'required|string|max:50',
+        'information' => 'required|string|max:1000',
+        'is_selling' => 'required',
+    ]);
 
-        // $fileName = uniqId(rand().'_');
-        // $extension = $imageFile->extension();
-        // $fileNameToStore=$fileName.'.'.$extension;
-        // Storage::put('public/shops/'.$fileNameToStore,$resizedImage);
-   }
+   
+    $imageFile = $request->image;
+    if(!is_null($imageFile) && $imageFile->isValid() ){
+        $fileNameToStore = ImageService::upload($imageFile,'shops');    
+    }
+   
+  
 
-   return redirect()->route('owner.shops.index');
+    $shop = Shop::findOrFail($id);
+    $shop->name = $request->name;
+    $shop->information = $request->information;
+    $shop->is_selling = $request->is_selling;
+    if(!is_null($imageFile) && $imageFile->isValid()){
+        $shop->filename = $fileNameToStore;
+     }
+
+    $shop->save();
+
+    return redirect()
+    ->route('owner.shops.index')
+    ->with(['message' => '店舗情報を更新しました。',
+    'status' => 'info']);
+
 }
+
 }
 
 

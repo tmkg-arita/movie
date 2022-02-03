@@ -9,11 +9,13 @@ class ImageService
 {
     public static function upload($imageFile,$folderName)
     {
-        $resizedImage = InterventionImage::make($imageFile)
-        ->resize(1920,1080)->encode();
-        $fileName = uniqId(rand().'_');
+        $filename = uniqid(rand().'_');
         $extension = $imageFile->extension();
-        $fileNameToStore=$fileName.'.'.$extension;
-        Storage::put('public/'.$folderName.'/'.$fileNameToStore,$resizedImage);
+        $fileNameToStore = $filename. '.' . $extension;
+        $resizedImage = InterventionImage::make($imageFile)->resize(1920, 1080)->encode();
+        Storage::put('public/' . $folderName . '/' . $fileNameToStore, $resizedImage );
+
+        return $fileNameToStore;
     }
 }
+
