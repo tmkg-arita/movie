@@ -16,12 +16,13 @@
                     <div class="flex flex-wrap">
                     @foreach ($images as $image )
                     {{-- クリックしたらedit画面に推移する。editの場合はパラメータも必要なので、第2引数にidを指定している。 --}}
-                    <div class="w-1/4 p-4 mr-10">
+                    <div class="w-1/4 p-2 md:p-4 mr-2">
                         <a href="{{ route('owner.images.edit',['image'=>$image->id ])}}">
-                        <div class="text-xl">
+                       
+                        <x-thumbnail :filename="$image->filename" type="products"/>
+                        <div class="text-gray-700">
                             {{ $image->title }}
                         </div>
-                      <x-thumbnail :filename="$image->filename" type="products"/>
                     </a>    
                     </div>
                 
