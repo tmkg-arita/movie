@@ -12,10 +12,11 @@
                     <x-flash-message :status="session('status')" />
                     <div class="flex justify-end mb-4">
                         <button onclick="location.href='{{route('owner.images.create')}}'" class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">新規登録</button>
-                      </div>
+                    </div>
+                    <div class="flex flex-wrap">
                     @foreach ($images as $image )
                     {{-- クリックしたらedit画面に推移する。editの場合はパラメータも必要なので、第2引数にidを指定している。 --}}
-                    <div class="w-1/4" p-4>
+                    <div class="w-1/4 p-4 mr-10">
                         <a href="{{ route('owner.images.edit',['image'=>$image->id ])}}">
                         <div class="text-xl">
                             {{ $image->title }}
@@ -23,10 +24,12 @@
                       <x-thumbnail :filename="$image->filename" type="products"/>
                     </a>    
                     </div>
-                    
-                </div>
+                
+                
                         
                     @endforeach
+                </div>
+                </div> 
                     {{ $images->links() }}
                 </div>
             </div>
