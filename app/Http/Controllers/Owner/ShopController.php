@@ -34,7 +34,7 @@ class ShopController extends Controller
                    abort(404);
                }
             }
-         
+
             return $next($request);
         });
 
@@ -61,20 +61,20 @@ public function edit($id)
 public function update(UploadImageRequest $request, $id)
 {
 
-   
+
     $request->validate([
         'name' => 'required|string|max:50',
         'information' => 'required|string|max:1000',
         'is_selling' => 'required',
     ]);
 
-   
+
     $imageFile = $request->image;
     if(!is_null($imageFile) && $imageFile->isValid() ){
-        $fileNameToStore = ImageService::upload($imageFile,'shops');    
+        $fileNameToStore = ImageService::upload($imageFile,'shops');
     }
-   
-  
+
+
 
     $shop = Shop::findOrFail($id);
     $shop->name = $request->name;
