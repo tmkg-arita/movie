@@ -85,9 +85,10 @@ class OwnersController extends Controller
                     'information' => '',
                     'filename' => '',
                     'is_selling' => true,
+                    
 
                 ]);
-                
+
             },2);
         } catch (Throwable $e) {
             Log::error($e);
